@@ -3,10 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>Coin Breaker</title>
-        <meta name="description" content="A simple application to break a Sterling value into its minimum constituent coins." />
+        <meta name="description" content="A simple application to break a Sterling amount into its minimum constituent coins." />
     </head>
     <body>
         <h1>Coin Breaker</h1>
+        <form action="">
+            <fieldset>
+                <legend>Coin Breaker</legend>
+                <div>
+                    <label for="breakable-amount">Amount to break</label>
+                    <input type="text" id="breakable-amount" aria-describedby="breakable-amount-tip" required />
+                    <div role="tooltip" id="breakable-amount-tip">The amount should be expressed in pounds or pence Sterling, for example &quot;&pound;1.50&quot; or &quot;20p&quot;.</div>
+                    <button type="button" title="Break amount" aria-controls="coins-broken">Break</button>
+                </div>
+                <div>
+                    <output id="coins-broken" for="breakable-amount">
+                    </output>
+                </div>
+            </fieldset>
+        </form>
     </body>
 </html>
 
