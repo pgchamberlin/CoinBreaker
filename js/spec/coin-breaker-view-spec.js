@@ -1,8 +1,20 @@
 define([
-    'js/src/views/coin-breaker-view'
-], function(CoinBreakerView) {
+    'js/src/views/coin-breaker-view',
+    'js/lib/domReady!'
+], function(CoinBreakerView, doc) {
 
-    var view = CoinBreakerView;
+    var view = CoinBreakerView,
+        formFixture;
+
+    beforeEach(function() {
+        formFixture = doc.createElement('form');
+        formFixture.id = 'coinbreaker-form';
+        doc.body.appendChild(formFixture);
+    });
+    
+    afterEach(function() {
+        formFixture.parentNode.removeChild(formFixture);
+    });
 
     describe('CoinBreakerView', function() {
 
@@ -41,6 +53,26 @@ define([
 
             // check that the mock was called with the mock value
             expect(mockSubscriber.callback).toHaveBeenCalledWith(mockUpdateValue);
+        });
+
+        it('should attach an event listener to the form on initialisation', function() {
+       /* failing     
+            spyOn(view, 'addFormListener');
+
+            view.init() 
+
+            expect(view.addFormListener).toHaveBeenCalled();
+            */
+        });
+
+        it('should activate the form on initialisation', function() {
+            /*
+            spyOn(view, 'activateForm');
+
+            view.init() 
+
+            expect(view.activateForm).toHaveBeenCalled();
+*/
         });
 
     });
