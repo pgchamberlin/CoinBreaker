@@ -62,8 +62,7 @@ define([
         },
 
         inputError = function(usertext) {
-            setOutput("<h2>Invalid amount: " + usertext + "</h2>" +
-                "<p>The amount should be expressed in pounds or pence Sterling, for example \"&pound;1.50\" or \"20p\".</p>");
+            setOutput("<p>Invalid input: " + usertext + ", please enter a Sterling amount.</p>");
         },
 
         /**
@@ -85,7 +84,7 @@ define([
          * This method updates the view of the coin breakdown
          */
         refreshView = function(data) {
-            setOutput("<h2>Minimum coins to make up " + data['totalAmount'] + "p:</h2>" +
+            setOutput("<p>The optimum coins required to make up " + data['totalAmount'] + "p are:</p>" +
                 "<ul>" +
                 "<li>" + data['ones'] + " x 1p</li>" +
                 "<li>" + data['twos'] + " x 2p</li>" +
@@ -93,8 +92,8 @@ define([
                 "<li>" + data['tens'] + " x 10p</li>" +
                 "<li>" + data['twenties'] + " x 20p</li>" +
                 "<li>" + data['fifties'] + " x 50p</li>" +
-                "<li>" + data['pounds'] + " x £1</li>" +
-                "<li>" + data['twoPounds'] + " x £2</li>" +
+                "<li>" + data['pounds'] + " x &pound;1</li>" +
+                "<li>" + data['twoPounds'] + " x &pound;2</li>" +
                 "</ul>");
         }
 
