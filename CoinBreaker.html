@@ -9,14 +9,13 @@
     </head>
     <body>
         <h1>Coin Breaker</h1>
-        <form action="">
+        <form id="coinbreaker-form" action="" aria-controls="coins-broken">
             <fieldset>
                 <legend>Coin Breaker</legend>
                 <div>
                     <label for="breakable-amount">Amount to break</label>
-                    <input type="text" id="breakable-amount" aria-describedby="breakable-amount-tip" required />
+                    <input type="text" id="breakable-amount" aria-describedby="breakable-amount-tip" required disabled />
                     <div role="tooltip" id="breakable-amount-tip">The amount should be expressed in pounds or pence Sterling, for example &quot;&pound;1.50&quot; or &quot;20p&quot;.</div>
-                    <button type="button" title="Break amount" aria-controls="coins-broken">Break</button>
                 </div>
                 <div>
                     <output id="coins-broken" for="breakable-amount" aria-live="assertive">
