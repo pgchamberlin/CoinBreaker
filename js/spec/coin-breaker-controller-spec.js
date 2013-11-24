@@ -21,19 +21,19 @@ define([
             expect(mockView.subscribe).toHaveBeenCalledWith(controller.onViewChange);
         });
 
-        it('should update the amount fields of its model when the view updates', function() {
+        it('should update the model when the view updates', function() {
             
             var mockModel = {
-                setAmount: function(amount) {}
+                setData: function(data) {}
             },
-            mockAmount = 1551241;
-            spyOn(mockModel, 'setAmount');
+            mockData = 'thisIsMockData';
+            spyOn(mockModel, 'setData');
 
             controller.setModel(mockModel);
 
-            controller.onViewChange(mockAmount);
+            controller.onViewChange(mockData);
 
-            expect(mockModel.setAmount).toHaveBeenCalledWith(mockAmount);
+            expect(mockModel.setData).toHaveBeenCalledWith(mockData);
         });
     });
 });

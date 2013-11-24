@@ -3,15 +3,18 @@ define([
     '../util/sterling-validator'
 ], function(doc, SterlingValidator) {
 
-    var 
+    var validator = SterlingValidator,
+
         /**
          * The following methods are boilerplate for MVC view behaviour
          */
         observe = function(subject) {
             subject.subscribe(onModelChange);
         },
-        onModelChange = function() {
+        onModelChange = function(data) {
+            // updateOutputView(data);
             console.log('onModelChange');
+            console.log(data);
         },
         subscribers = [],
         subscribe = function(callback) {
@@ -61,7 +64,7 @@ define([
         //
         handleFormSubmit = function(target) {
             var usertext = target.querySelector('#breakable-amount').value,
-                sterlingValue = SterlingValidator.validate(usertext);
+                sterlingValue = validator.validate(usertext);
             console.log(usertext);
             if (sterlingValue.isValid()) {
                 notify(sterlingValue.toPence());

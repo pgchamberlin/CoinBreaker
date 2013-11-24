@@ -26,6 +26,7 @@ define([
             // check that the mock was called with the mock value
             expect(mockSubscriber.callback).toHaveBeenCalledWith(mockUpdateValue);
         });
+
     });
 });
 

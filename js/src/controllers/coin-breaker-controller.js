@@ -4,13 +4,13 @@ define([], function() {
             subject.subscribe(onViewChange);
         },
         onViewChange = function(amount) {
-            model.setAmount(amount);
+            model.setData(amount);
         },
         model,
         setModel = function(m) {
             model = m;
         };
-
+    
     return {
         observe: observe,
         setModel: setModel,
