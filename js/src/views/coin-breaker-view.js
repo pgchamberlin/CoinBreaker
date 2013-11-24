@@ -12,9 +12,7 @@ define([
             subject.subscribe(onModelChange);
         },
         onModelChange = function(data) {
-            // updateOutputView(data);
-            console.log('onModelChange');
-            console.log(data);
+            refreshView(data);
         },
         subscribers = [],
         subscribe = function(callback) {
@@ -35,6 +33,8 @@ define([
          * The rest of the methods deal with managing the CoinBreaker view
          */
         form = doc.getElementById('coinbreaker-form'),
+
+        output = doc.getElementById('coins-broken'),
 
         /**
          * This method attaches the handleFormSubmit handler
@@ -57,21 +57,46 @@ define([
             form.querySelector('#breakable-amount').disabled = false;
         },
 
-        inputError = function(usertext) {
-            console.log('invalid input: ' + usertext);
+        setOutput = function(newOutput) {
+            output.innerHTML = newOutput;
         },
 
-        //
+        inputError = function(usertext) {
+            setOutput("<h2>Invalid amount: " + usertext + "</h2>" +
+                "<p>The amount should be expressed in pounds or pence Sterling, for example \"&pound;1.50\" or \"20p\".</p>");
+        },
+
+        /**
+         * This method runs validation on the user input
+         * and either notifies its subscribers (if the
+         * input is valid) or raises an error message
+         */
         handleFormSubmit = function(target) {
             var usertext = target.querySelector('#breakable-amount').value,
                 sterlingValue = validator.validate(usertext);
-            console.log(usertext);
             if (sterlingValue.isValid()) {
                 notify(sterlingValue.toPence());
             } else {
                 inputError(usertext);
             }
         },
+
+        /**
+         * This method updates the view of the coin breakdown
+         */
+        refreshView = function(data) {
+            setOutput("<h2>Minimum coins to make up " + data['totalAmount'] + "p:</h2>" +
+                "<ul>" +
+                "<li>" + data['ones'] + " x 1p</li>" +
+                "<li>" + data['twos'] + " x 2p</li>" +
+                "<li>" + data['fives'] + " x 5p</li>" +
+                "<li>" + data['tens'] + " x 10p</li>" +
+                "<li>" + data['twenties'] + " x 20p</li>" +
+                "<li>" + data['fifties'] + " x 50p</li>" +
+                "<li>" + data['pounds'] + " x £1</li>" +
+                "<li>" + data['twoPounds'] + " x £2</li>" +
+                "</ul>");
+        }
 
         /**
          * The init method sets up the working state of the app
