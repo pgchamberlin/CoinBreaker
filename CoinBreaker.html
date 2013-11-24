@@ -11,21 +11,33 @@
         <script async=true data-main="./js/src/coin-breaker-bootstrap.js" src="./js/lib/require.js"></script>
     </head>
     <body>
-        <h1>Coin Breaker</h1>
-        <form id="coinbreaker-form" action="" aria-controls="coins-broken">
-            <fieldset>
-                <legend>Coin Breaker</legend>
-                <div>
-                    <label for="breakable-amount">Amount to break</label>
-                    <input type="text" id="breakable-amount" aria-describedby="breakable-amount-tip" required disabled />
-                    <div role="tooltip" id="breakable-amount-tip">The amount should be expressed in pounds or pence Sterling, for example &quot;&pound;1.50&quot; or &quot;20p&quot;.</div>
-                </div>
-                <div>
-                    <output id="coins-broken" for="breakable-amount" aria-live="assertive">
-                    </output>
-                </div>
-            </fieldset>
-        </form>
+        <div class="header-container">
+            <header class="wrapper">
+                <h1>Coin Breaker</h1>
+            </header>
+        </div>
+        <div class="main-container">
+            <form id="coinbreaker-form" class="wrapper" action="" aria-controls="coins-broken">
+                <fieldset>
+                    <legend>Break a Sterling amount into its optimum constituent coins.</legend>
+                    <div>
+                        <label for="breakable-amount">Amount to break&#58;</label>
+                        <input type="text" id="breakable-amount" aria-describedby="breakable-amount-tip" required disabled />
+                        <input type="submit" name="submit-form" value="break" />
+                        <div role="tooltip" id="breakable-amount-tip">The amount should be expressed in pounds or pence Sterling, for example &quot;&pound;1.50&quot; or &quot;20p&quot;.</div>
+                    </div>
+                    <div>
+                        <output id="coins-broken" for="breakable-amount" aria-live="assertive">
+                        </output>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer-container">
+            <footer>
+                <p>By <a href="http://www.peterchamberlin.com">Peter Chamberlin</a>.</p>
+            </footer>
+        </div>
     </body>
 </html>
 
