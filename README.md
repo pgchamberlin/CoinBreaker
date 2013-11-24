@@ -3,6 +3,12 @@ CoinBreaker
 
 A simple JS app to break Sterling values into the minimum constituent coins
 
+## Running the app
+
+To run the app simply clone this repository and navigate to CoinBreaker.html. There is no build necessary.
+
+To run tests navigate to SpecRunner.html, which will execute the app's Jasmine specs in the browser.
+
 ## Dependencies
 
 All dependencies are included in the repository.
