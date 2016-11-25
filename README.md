@@ -16,7 +16,7 @@ All dependencies are included in the repository.
 The third party libraries used are:
 
 - [Requirejs](http://requirejs.org)
-- [Jasmine](http://pivotal.github.io/jasmine/)
+- [Jasmine](https://jasmine.github.io/)
 - [Normalize](http://git.io/normalize)
 
 I considered using further libraries, such as Underscore and Backbone, but decided that I would like to complete the task
